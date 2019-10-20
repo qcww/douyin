@@ -1,0 +1,38 @@
+APP_ENV=local
+APP_DEBUG=true
+API_DEBUG=true
+APP_KEY=IdGhjwQyKqeBdivWnkW5HOIIk6R4eO68
+
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=turkey_db
+DB_USERNAME=root
+DB_PASSWORD=LaiDanMe2017YuanJuDongLi
+
+CACHE_DRIVER=file
+QUEUE_DRIVER=sync
+
+JWT_SECRET=IdGhjwQyKqeBdivWnkW5HOIIk6R4eO68
+
+API_PREFIX=api
+# API_DOMAIN=
+
+# 不同版本的访问是通过 header中的 Accept 去控制(需要先开启 API_STRICT)：需要注意的是Accept中需要包含 Standards Tree, Subtype, version, format信息。在.env 中这样配置
+# application/tree.subtype.version+format
+# 请求头信息添加：Accept: application/tur.key.v1+json
+# 请求头的参数
+API_STRICT=true
+API_STANDARDS_TREE=tur
+API_SUBTYPE=key
+API_VERSION=v1
+API_DEFAULT_FORMAT=json
+
+# 融云key
+RY_APPKEY=lmxuhwaglicwd
+RY_APPSECRET=AqSg7z4zdRk
+RY_HOST=http://api.cn.ronghub.com/
+
+# 小程序的配置
+WECHAT_APP_ID=wx8028bdb8d0305fac
+WECHAT_APP_SERCRET=2520f05038ea5de6a98bbe137f9470d3

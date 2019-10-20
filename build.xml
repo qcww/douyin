@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="dy_api" default="build">
+        <target name="build" depends="check,tar" description="build dy project"/>
+
+	<property name="version" value="${buildnumber}.${buildid}" />
+	<property name="tarfile" value="${phing.project.name}.${buildnumber}.${buildid}.tar.gz" />
+	<property name="distfile" value="dist_s/${tarfile}" />
+	<target name="check">
+            <fail unless="version" message="add param version" />
+            <mkdir dir="dist_s" />
+	    <echo msg="building file ${buildnumber}.${buildid}" />
+	</target>
+
+	<fileset id="file_path" dir=".">
+		<include name="app/**"/>
+		<include name="routes/**"/>
+		<include name="db/**"/>
+		<include name="build.xml"/>
+		<include name="bootstrap/**"/>
+		<include name=".env"/>
+		<include name="public/ask_douyin_11.js"/>
+		<include name="public/ask_douyin_12.js"/>
+		<include name="public/ask_douyin_13.js"/>
+		<include name="public/ask_kuaishou_11.js"/>
+		<include name="public/ask_douyin_double.js"/>
+		<include name="public/ask_douyin_pc.js"/>
+		<include name="public/dy.png"/>
+		<include name="apple_script/**"/>
+	</fileset>
+    
+	<target name="deletelastdist">
+		<echo msg="delete the last fold" />
+		<delete dir="dist_s" failonerror="false" />
+		<mkdir dir="dist_s" />
+	</target>
+
+	<target name="tar" depends="deletelastdist">
+		<echo msg="current tar version is ${phing.project.name} ${version}"/>
+            	<tar destfile="${distfile}" compression="gzip">
+                	<fileset refid="file_path"/>
+            	</tar>		
+	</target>
+	
+	<echo msg="${tarfile}" />
+	<echo msg="${project.basedir}" />
+</project>
+
+
+
+
